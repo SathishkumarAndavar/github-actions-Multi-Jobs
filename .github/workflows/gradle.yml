@@ -62,7 +62,7 @@ jobs:
       - name: Pushing the built artifact to Jfrog repository
         run: |
             docker login -u renuka.prasad@cloudzenix.com -p Prasad@123 cloudzenix.jfrog.io
-        #jf rt upload cz-springboot-welcome.jar maven-build --url=https://cjf.jfrog.io/artifactory/ --user=ckreddy459@gmail.com --password=Dev$3Ops2022
+            jf rt upload *jar maven-build --url=https://cloudzenix.jfrog.io/artifactory/ --user=renuka.prasad@cloudzenix.com --password=Prasad@123
       #run: jf rt upload artifacts/cz-springboot-welcome.jar maven-demo --url=cloudzenix.jfrog.io --user=renuka.prasad@cloudzenix.com --password=Prasad@123
   
  
