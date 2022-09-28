@@ -34,7 +34,7 @@ jobs:
         arguments: build
     - name: Build source code into jar file with Maven
       run: |
-           mvn -B package --file pom.xml
+           gradle build
            mkdir artifacts && cp target/libs/*.jar artifacts
            cd artifacts && ls
         
