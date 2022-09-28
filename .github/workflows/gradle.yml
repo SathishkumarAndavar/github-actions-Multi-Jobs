@@ -37,7 +37,7 @@ jobs:
            gradle build
            ls
            tree
-           mkdir artifacts && cp target/libs/*.jar artifacts
+           mkdir artifacts && cp build/libs/*.jar artifacts
            cd artifacts && ls
         
     - name: Saving the artifact 
