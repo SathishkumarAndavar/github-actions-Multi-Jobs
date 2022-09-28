@@ -1,4 +1,4 @@
 FROM openjdk:8
 EXPOSE 8080
-ADD target/cz-springboot-welcome.jar cz-springboot-welcome.jar
-ENTRYPOINT ["java","-jar","/cz-springboot-welcome.jar"]
+ADD build/libs/github-cicd-actions-0.0.1-SNAPSHOT.jar github-cicd-actions-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java","-jar","/github-cicd-actions-0.0.1-SNAPSHOT.jar"]
