@@ -35,6 +35,8 @@ jobs:
     - name: Build source code into jar file with Maven
       run: |
            gradle build
+           ls
+           tree
            mkdir artifacts && cp target/libs/*.jar artifacts
            cd artifacts && ls
         
