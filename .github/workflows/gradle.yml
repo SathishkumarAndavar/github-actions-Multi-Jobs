@@ -32,3 +32,37 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
+    - name: Build source code into jar file with Maven
+      run: |
+           mvn -B package --file pom.xml
+           mkdir artifacts && cp target/libs/*.jar artifacts
+           cd artifacts && ls
+        
+    - name: Saving the artifact 
+      uses: actions/upload-artifact@v2
+      with:
+        name: Springboot artifact
+        path: artifacts
+        
+  Pushing-Artifact-to-Jfrog_Repo:
+    name: Pushing-Artifact-to-Jfrog_Repo
+    runs-on: ubuntu-latest
+    needs: [build-code]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: Springboot artifact
+    #  - run: ls
+          
+      - name: Setting up Jfrog-CLI
+        uses: jfrog/setup-jfrog-cli@v2
+      #run: jf --version
+      - name: Pushing the built artifact to Jfrog repository
+        run: |
+            docker login -uckreddy459@gmail.com -p Dev$3Ops2022 cjf.jfrog.io
+        #jf rt upload cz-springboot-welcome.jar maven-build --url=https://cjf.jfrog.io/artifactory/ --user=ckreddy459@gmail.com --password=Dev$3Ops2022
+      #run: jf rt upload artifacts/cz-springboot-welcome.jar maven-demo --url=cloudzenix.jfrog.io --user=renuka.prasad@cloudzenix.com --password=Prasad@123
+  
+ 
